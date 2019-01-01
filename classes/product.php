@@ -37,4 +37,15 @@ class Product
 		}
 
 	}
+
+	public function readAll($fromRecordNum, $recordsPerPage) {
+		$query = "SELECT id, name, description, price, category_id
+				  FROM " .$this->tableName. "
+				  ORDER BY name ASC
+				  LIMIT " .$fromRecordNum. ", " .$recordsPerPage. "
+				  ";
+		$stmt = $this->conn->prepare($query);
+		$stmt->execute();
+		return $stmt;
+	}
 }
