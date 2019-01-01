@@ -17,13 +17,16 @@ $categoryStmt = $category->readAll();
 
 // set page headers
 $pageTitle = "Add Product";
+$cssPath = '../../libs/frontend/css/main.css';
 include_once "../../layout/header.php";
 ?>
 
 <!-- botton to show products -->
 <div class="right-button-margin">
-	<a href="index.php" class="btn btn-default pull-right">Show Products</a>
+	<a href="../../index.php" class="btn btn-default pull-right">Show Products</a>
 </div>
+
+
 <!-- if method is post -->
 <?php
 	if ($_POST) {

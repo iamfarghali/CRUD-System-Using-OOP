@@ -12,7 +12,7 @@
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<!-- custom css -->
-	<link rel="stylesheet" type="text/css" href="../../libs/frontend/css/main.css">
+	<link rel="stylesheet" type="text/css" href="<?= $cssPath ?>">
 </head>
 <body>
 	<!-- container -->
