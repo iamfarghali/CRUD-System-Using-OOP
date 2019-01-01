@@ -19,7 +19,7 @@ class Category
 		return $stmt;
 	}
 
-	public function readCategory() {
+	public function readCategoryName() {
 		$query = "SELECT * FROM " .$this->tableName. " WHERE id = ?";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute([$this->id]);
