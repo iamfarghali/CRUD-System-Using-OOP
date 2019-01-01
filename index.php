@@ -1,4 +1,6 @@
 <?php 
+// page url
+$pageUrl = 'index.php';
 
 // page given in URL parameter, default page is one
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -26,6 +28,10 @@ $product = new Product($dbConnection);
 // query for product
 $productStmt = $product->readAll($fromRecordNum, $recordsPerPage);
 $numOfRetrievedRecords = $productStmt->rowCount();
+
+// total rows
+$totalRow = $product->countAll();
+
 
 // set page headers
 $pageTitle = "Products";
@@ -62,7 +68,15 @@ include_once "layout/header.php";
 				?>
 			</td>
 			<td>
-				<!-- // Action -->
+				<a href="pages/product/read_one.php?id=<?=$id?>" class="btn btn-primary left-margin">
+					<span class="glyphicon glyphicon-list"></span> Read 
+				</a>
+				<a href="pages/product/update_product.php?id=<?=$id?>" class="btn btn-info left-margin">
+					<span class="glyphicon glyphicon-edit"></span> Edit 
+				</a>
+				<a delete-id="<?=$id?>" class="btn btn-danger delete-object">
+					<span class="glyphicon glyphicon-remove"></span> Delete 
+				</a>
 			</td>
 		</tr>
 <?php
@@ -76,6 +90,9 @@ include_once "layout/header.php";
 ?>
 
 <?php
+// pagination
+include_once "pages/paging.php";
+
 // footer
 include_once "layout/footer.php";
 ?>
